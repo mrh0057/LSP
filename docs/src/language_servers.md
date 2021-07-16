@@ -133,6 +133,31 @@ Follow installation instructions on [LSP-flow](https://github.com/sublimelsp/LSP
 !!! info "See available [configuration options](https://github.com/hansec/fortran-language-server#language-server-settings)."
     For example set `"command": ["fortls", "--lowercase_intrinsics"]` to use lowercase for autocomplete suggestions.
 
+## F\#
+
+1. Install the [ F\#](https://github.com/hoest/sublimetext-fsharp) package from Package Control for syntax highlighting.
+2. Install fsautocomplete language server `dotnet tool install fsautocomplete -g`
+3. Open `Preferences > Package Settings > LSP > Settings` and add the `"fsharp"` client configuration to the `"clients"`:
+```json
+    {
+        "clients": {
+            "fsharp":
+            {
+                "command": [
+                    "dotnet-fsautocomplete",
+                    "--background-service-enabled"
+                ],
+                "enabled": true,
+                "selector": "source.fs",
+                "initializationOptions": {
+                  "AutomaticWorkspaceInit": true
+                }
+            }
+        }
+    }
+
+```
+
 ## Go
 
 1. Install [gopls](https://github.com/golang/tools/blob/master/gopls/README.md#installation).
